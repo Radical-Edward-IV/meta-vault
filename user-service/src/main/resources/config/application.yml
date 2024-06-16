@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    default: dev # Default Activation Profile
+  application:
+    name: user-service
+  config:
+    import: >
+      classpath:config/${spring.profiles.active}/application.yml,
+      classpath:config/${spring.profiles.active}/datasource.yml,
+      classpath:config/${spring.profiles.active}/policy.yml

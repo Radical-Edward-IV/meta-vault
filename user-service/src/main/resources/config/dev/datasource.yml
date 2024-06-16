@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver                              # [DEV]
+    url: jdbc:h2:~/Projects/Java/APIs/meta-vault/datafiles/testdb # [DEV]
+#    url: jdbc:h2:mem:test                                         # [DEV] In-Memory Mode
+    username: admin                                               # [DEV]
+    password: 701215                                              # [DEV]
+  h2:                                                             # [DEV]
+    console:                                                      # [DEV]
+      enabled: true                                               # [DEV]
+      path: /h2-console                                           # [DEV]
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect                  # [DEV]
+        # [DEV] This property is used to format SQL queries
+        #       outputted to the console by Hibernate, making then more human-readable.
+        format_sql: true
+        # [DEV] This property is used to control
+        #       whether Hibernate should output the SQL queries it executes to the console.
+        show_sql: true
+    hibernate:
+      ddl-auto: none
+#      ddl-auto: create-drop                                  # [DEV]
+    # [DEV] This property is used in Spring Boot applications to delay the initialization of the data source.
+    #       It is useful when the configured database is not required at application startup.
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:/queries/dev/schema-dev.sql
+      data-locations: classpath:/queries/dev/data-dev.sql
