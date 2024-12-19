@@ -1,0 +1,6 @@
+services:
+  metavault:
+    container_name: metavault
+    image: openjdk:21-jdk-slim
+    ports:
+      - 8761:8761

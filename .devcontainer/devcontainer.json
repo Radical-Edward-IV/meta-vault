@@ -1,0 +1,12 @@
+{
+    "name"             : "spring-boot-container",
+    "service"          : "metavault",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "workspaceFolder"  : "/workspace",
+    "remoteUser"       : "root",
+    "postCreateCommand": "java --version",
+    "customizations"   : {
+        "jetbrains": {"backend": "IntelliJ"}
+    }
+    // "image": "openjdk:21-jdk-slim"
+}
