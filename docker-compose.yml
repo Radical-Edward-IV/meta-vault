@@ -4,3 +4,4 @@ services:
     image: openjdk:21-jdk-slim
     ports:
       - 8761:8761
+      - 9001:9001
