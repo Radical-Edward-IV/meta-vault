@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 0
 
 spring:
   application:
@@ -18,8 +18,19 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
 
 eureka:
+  instance:
+    # 인스턴스를 고유하게 식별하기 위한 값
+    # 1. 명시적으로 설정
+    instance-id: ${spring.application.name}:${server.port}:${random.value}
+    # 2. IP 기반 설정
+#    instancd-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    # 3. 고유한 UUID로 설정
+#    instance-id: ${spring.application.name}:${random.uuid}
   client:
+    # 클라이언트가 자신을 Eureka 서버에 등록할지 여부를 결정하는 설정
+    # 클러스터링 모드로 설정하는 경우, register-with-eureka를 true로 설정하여 서로의 Eureka 서버 간 정보를 공유하는 구조를 만듭니다.
     register-with-eureka: true
+    # 클라이언트가 자신을 Eureka 서버에 등록할지 여부를 결정하는 설정
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
