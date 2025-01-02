@@ -1,5 +1,5 @@
 {
-    "name"             : "spring-boot-container",
+    "name"             : "Spring Boot Dev Container",
     "service"          : "metavault",
     "dockerComposeFile": ["../docker-compose.yml"],
     "workspaceFolder"  : "/workspace",
